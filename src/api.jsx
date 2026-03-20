@@ -1,9 +1,11 @@
+import config from './config';
+
 export const uploadFile = async (file, language) => {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("language", language);
 
-  const response = await fetch("http://127.0.0.1:8000/api/transcribe/", {
+  const response = await fetch(`${config.API_BASE_URL}/api/transcribe/`, {
     method: "POST",
     body: formData,
   });

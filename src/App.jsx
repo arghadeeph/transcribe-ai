@@ -2,6 +2,8 @@ import { useState } from "react";
 import { uploadFile } from "./api";
 import { useRef } from "react";
 import "./App.css";
+import Footer from "./components/Footer";
+
 
 function App() {
   const [file, setFile] = useState(null);
@@ -79,8 +81,9 @@ function App() {
   };
 
    return (
+    
     <div className="app">
-
+      
       {/* HEADER */}
       <header className="header">
         <div className="header-inner">
@@ -102,7 +105,11 @@ function App() {
       </header>
 
       {/* MAIN */}
-      <div className="container">
+      <div className="container" style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "65vh"   // full screen height
+      }}>
         <h2 className="title">Upload & Process Your File</h2>
 
         <form onSubmit={handleSubmit}>
@@ -262,6 +269,10 @@ function App() {
           </div>
         )}
       </div>
+
+      {/* Footer */}
+      <Footer />
+
     </div>
   );
 }
